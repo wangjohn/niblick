@@ -30,6 +30,95 @@
   </div>
 </template>
 
+<template name="create_new_course_detailed_information">
+  <table class="table detailed-course-information">
+    <tr class="hole-headers">
+      <td>Hole</td>
+      <td class="text-center">1</td>
+      <td class="text-center">2</td>
+      <td class="text-center">3</td>
+      <td class="text-center">4</td>
+      <td class="text-center">5</td>
+      <td class="text-center">6</td>
+      <td class="text-center">7</td>
+      <td class="text-center">8</td>
+      <td class="text-center">9</td>
+      <td class="text-center">10</td>
+      <td class="text-center">11</td>
+      <td class="text-center">12</td>
+      <td class="text-center">13</td>
+      <td class="text-center">14</td>
+      <td class="text-center">15</td>
+      <td class="text-center">16</td>
+      <td class="text-center">17</td>
+      <td class="text-center">18</td>
+    </tr>
+    <tr class="hole-yardage">
+      <td>Yardage</td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+    </tr>
+    <tr class="hole-par">
+      <td>Par</td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+    </tr>
+    <tr class="hole-handicap">
+      <td>Handicap</td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+      <td><input class="form-control"></td>
+    </tr>
+  </table>
+</template>
+
 <template name="create_new_course">
   <div class="col-sm-12 create-new-course">
     <h2>Create new course</h2>
@@ -53,9 +142,21 @@
         <input class="form-control course-slope" type="text" placeholder="Course Slope">
       </div>
     </div>
+    {{#if add_detailed_information }}
+      {{> create_new_course_detailed_information }}
+    {{/if}}
     <div class="col-sm-12">
       <div class="form-group">
         <button class="btn btn-primary submit-new-course">Create course</button>
+        {{#if add_detailed_information }}
+          <button class="btn btn-default hide-detailed-information">
+            <span class="glyphicon glyphicon-minus"></span> Hide detailed info
+          </button>
+        {{else}}
+          <button class="btn btn-default add-detailed-information">
+            <span class="glyphicon glyphicon-plus"></span> Add detailed info
+          </button>
+        {{/if}}
       </div>
     </div>
   </div>
