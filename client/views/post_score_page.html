@@ -1,0 +1,65 @@
+<template name="post_score_page">
+  <div class="col-sm-12">
+    {{> course_selection_buttons }}
+  </div>
+  <div class="col-sm-12">
+    {{#if adding_course}}
+      {{> create_new_course }}
+    {{/if}}
+  </div>
+</template>
+
+<template name="course_selection_buttons">
+  <div class="col-sm-12">
+    <div class="col-sm-6">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-search"></span>
+        </span>
+        <input class="form-control" type="text" placeholder="Search for courses">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="pull-right">
+        <button class="btn btn-primary add-course">
+          <span class="glyphicon glyphicon-plus"></span>
+          Add Course
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="create_new_course">
+  <div class="col-sm-12 create-new-course">
+    <h2>Create new course</h2>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <input class="form-control course-name" type="text" placeholder="Course Name">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <input class="form-control course-tees" type="text" placeholder="Tees">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <input class="form-control course-rating" type="text" placeholder="Course Rating">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <input class="form-control course-slope" type="text" placeholder="Course Slope">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <button class="btn btn-primary submit-new-course">Create course</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="course_list">
+</template>
