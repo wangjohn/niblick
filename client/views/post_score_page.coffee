@@ -10,13 +10,22 @@ Template.create_new_course.events
     htmlWrapper = $(".create-new-course")
 
     courseSpecifications =
-      name: htmlWrapper.find(".course-name")
-      tees: htmlWrapper.find(".course-tees")
-      rating: htmlWrapper.find(".course-rating")
-      slope: htmlWrapper.find(".course-slope")
-      yardage: htmlWrapper.find(".course-yardage")
+      name: htmlWrapper.find(".course-name").val()
+      tees: htmlWrapper.find(".course-tees").val()
+      rating: htmlWrapper.find(".course-rating").val()
+      slope: htmlWrapper.find(".course-slope").val()
+      total_yardage: htmlWrapper.find(".course-yardage").val()
+      yardages: htmlWrapper.find(".detailed-course-information .hole-yardage input").map( -> $(@).val() ).get()
+      handicaps: htmlWrapper.find(".detailed-course-information .hole-handicap input").map( -> $(@).val() ).get()
+      pars: htmlWrapper.find(".detailed-course-information .hole-par input").map( -> $(@).val() ).get()
 
+    console.log(courseSpecifications)
+    courseId = Courses.insert(courseSpecifications)
+    Session.set("selected_course", Courses.findOne(courseId))
     Session.set("course_selection_adding_course", false)
+
+  "keyup .course-yardage": (evt) ->
+    $(".create-new-course .course-yardage").attr("data-user-input", "t")
 
   "click .add-detailed-information": (evt) ->
     Session.set("course_selection_add_detailed_information", true)
@@ -31,6 +40,7 @@ Template.create_new_course_detailed_information.events
   "keyup .hole-yardage input": (evt) ->
     callback = parValueGenerator(".hole-yardage input", ".hole-par input", evt)
     maximumLengthFocuser(3, evt, callback)
+    totalYardageAdder(".create-new-course .course-yardage")
 
   "keyup .hole-par input": (evt) ->
     maximumLengthFocuser(1, evt)
@@ -40,6 +50,17 @@ Template.create_new_course_detailed_information.events
 
 Template.create_new_course_detailed_information.show_detailed_information = ->
   "hide" unless Session.get("course_selection_add_detailed_information")
+
+totalYardageAdder = (totalYardageSelector, evt) ->
+  if $(totalYardageSelector).val() == "" or $(totalYardageSelector).attr("data-user-input") == "f"
+    yardages = $(".hole-yardage input").map( -> $(@).val() ).get()
+    totalYardage = 0
+    for yardage in yardages
+      if yardage != ""
+        totalYardage += parseInt(yardage, 10)
+
+    $(totalYardageSelector).val(totalYardage)
+    $(totalYardageSelector).attr("data-user-input", "f")
 
 parValueGenerator = (yardageInputsSelector, parValueSelector, evt) ->
   callback = ->
