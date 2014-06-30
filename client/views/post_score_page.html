@@ -1,39 +1,10 @@
 <template name="post_score_page">
   <div class="col-sm-12">
-    {{> course_selection_buttons }}
-  </div>
-  <div class="col-sm-12">
-    {{#if adding_course}}
-      {{> create_new_course }}
-    {{/if}}
-    {{#if searching_course }}
-      {{> course_list}}
-    {{/if}}
+    {{> post_score_body }}
   </div>
 </template>
 
-<template name="course_selection_buttons">
-  <div class="col-sm-12">
-    <div class="col-sm-6">
-      <div class="input-group">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-search"></span>
-        </span>
-        <input class="form-control" type="text" placeholder="Search for courses">
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="pull-right">
-        <button class="btn btn-primary add-course">
-          <span class="glyphicon glyphicon-plus"></span>
-          Add Course
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
-<template name="create_new_course_detailed_information">
+<template name="post_score_detailed_information">
   <div class="col-sm-12 {{ show_detailed_information }}">
     <table class="table detailed-course-information">
       <tr class="hole-headers">
@@ -56,6 +27,90 @@
         <td class="text-center" data-hole-number="16">16</td>
         <td class="text-center" data-hole-number="17">17</td>
         <td class="text-center" data-hole-number="18">18</td>
+      </tr>
+      <tr class="hole-score">
+        <td>Score</td>
+        <td><input class="form-control" data-hole-number="1"></td>
+        <td><input class="form-control" data-hole-number="2"></td>
+        <td><input class="form-control" data-hole-number="3"></td>
+        <td><input class="form-control" data-hole-number="4"></td>
+        <td><input class="form-control" data-hole-number="5"></td>
+        <td><input class="form-control" data-hole-number="6"></td>
+        <td><input class="form-control" data-hole-number="7"></td>
+        <td><input class="form-control" data-hole-number="8"></td>
+        <td><input class="form-control" data-hole-number="9"></td>
+        <td><input class="form-control" data-hole-number="10"></td>
+        <td><input class="form-control" data-hole-number="11"></td>
+        <td><input class="form-control" data-hole-number="12"></td>
+        <td><input class="form-control" data-hole-number="13"></td>
+        <td><input class="form-control" data-hole-number="14"></td>
+        <td><input class="form-control" data-hole-number="15"></td>
+        <td><input class="form-control" data-hole-number="16"></td>
+        <td><input class="form-control" data-hole-number="17"></td>
+        <td><input class="form-control" data-hole-number="18"></td>
+      </tr>
+      <tr class="fairway-in-regulation">
+        <td>Fairway in Regulation</td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="1"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="2"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="3"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="4"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="5"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="6"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="7"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="8"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="9"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="10"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="11"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="12"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="13"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="14"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="15"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="16"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="17"></td>
+        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="18"></td>
+      </tr>
+      <tr class="green-in-regulation">
+        <td>Green in Regulation</td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="1"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="2"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="3"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="4"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="5"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="6"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="7"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="8"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="9"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="10"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="11"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="12"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="13"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="14"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="15"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="16"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="17"></td>
+        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="18"></td>
+      </tr>
+      <tr class="putts">
+        <td>Putts</td>
+        <td><input class="form-control" data-hole-number="1"></td>
+        <td><input class="form-control" data-hole-number="2"></td>
+        <td><input class="form-control" data-hole-number="3"></td>
+        <td><input class="form-control" data-hole-number="4"></td>
+        <td><input class="form-control" data-hole-number="5"></td>
+        <td><input class="form-control" data-hole-number="6"></td>
+        <td><input class="form-control" data-hole-number="7"></td>
+        <td><input class="form-control" data-hole-number="8"></td>
+        <td><input class="form-control" data-hole-number="9"></td>
+        <td><input class="form-control" data-hole-number="10"></td>
+        <td><input class="form-control" data-hole-number="11"></td>
+        <td><input class="form-control" data-hole-number="12"></td>
+        <td><input class="form-control" data-hole-number="13"></td>
+        <td><input class="form-control" data-hole-number="14"></td>
+        <td><input class="form-control" data-hole-number="15"></td>
+        <td><input class="form-control" data-hole-number="16"></td>
+        <td><input class="form-control" data-hole-number="17"></td>
+        <td><input class="form-control" data-hole-number="18"></td>
       </tr>
       <tr class="hole-yardage">
         <td>Yardage</td>
@@ -124,9 +179,9 @@
   </div>
 </template>
 
-<template name="create_new_course">
+<template name="post_score_body">
   <div class="col-sm-12 create-new-course">
-    <h2>Create new course</h2>
+    <h2>Post Score</h2>
     <div class="col-sm-12">
       <div class="form-group">
         <input class="form-control course-name" type="text" placeholder="Course Name">
@@ -152,7 +207,7 @@
         <input class="form-control course-slope" type="text" placeholder="Course Slope">
       </div>
     </div>
-    {{> create_new_course_detailed_information }}
+    {{> post_score_detailed_information }}
     <div class="col-sm-12">
       <div class="form-group">
         <button class="btn btn-primary submit-new-course">Create course</button>
@@ -168,7 +223,4 @@
       </div>
     </div>
   </div>
-</template>
-
-<template name="course_list">
 </template>

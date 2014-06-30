@@ -36,7 +36,7 @@ Template.create_new_course.events
 Template.create_new_course.add_detailed_information = ->
   Session.get("course_selection_add_detailed_information")
 
-Template.create_new_course_detailed_information.events
+Template.post_score_detailed_information.events
   "keyup .hole-yardage input": (evt) ->
     callback = parValueGenerator(".hole-yardage input", ".hole-par input", evt)
     maximumLengthFocuser(3, evt, callback)
@@ -48,7 +48,7 @@ Template.create_new_course_detailed_information.events
   "keyup .hole-handicap input": (evt) ->
     maximumLengthFocuser(2, evt)
 
-Template.create_new_course_detailed_information.show_detailed_information = ->
+Template.post_score_detailed_information.show_detailed_information = ->
   "hide" unless Session.get("course_selection_add_detailed_information")
 
 totalYardageAdder = (totalYardageSelector, evt) ->
