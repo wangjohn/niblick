@@ -4,6 +4,78 @@
   </div>
 </template>
 
+<template name="post_score_body">
+  <div class="col-sm-12 create-new-course">
+    <h2>Course Information</h2>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <input class="form-control course-name" type="text" placeholder="Course Name">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <input class="form-control course-tees" type="text" placeholder="Tees">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <input class="form-control course-rating" type="text" placeholder="Course Rating">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <input class="form-control course-slope" type="text" placeholder="Course Slope">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <input class="form-control course-yardage" type="text" placeholder="Total Yardage" data-user-input="t">
+      </div>
+    </div>
+    <h2>Scoring Information</h2>
+    {{> post_score_information }}
+    <div class="col-sm-12">
+      <div class="form-group">
+        <button class="btn btn-primary submit-new-course">Post Score</button>
+        {{#if add_detailed_information }}
+          <button class="btn btn-default hide-detailed-information">
+            <span class="glyphicon glyphicon-minus"></span> Hide detailed info
+          </button>
+        {{else}}
+          <button class="btn btn-default add-detailed-information">
+            <span class="glyphicon glyphicon-plus"></span> Add detailed info
+          </button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="post_score_information">
+  {{> post_score_non_detailed_information}}
+  {{> post_score_detailed_information}}
+</template>
+
+<template name="post_score_non_detailed_information">
+  <div class="{{ show_non_detailed_information }}">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <input class="form-control front-nine-score" type="text" placeholder="Front Nine Score">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <input class="form-control back-nine-score" type="text" placeholder="Back Nine Score">
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <input class="form-control total-score" type="text" placeholder="Total Score">
+      </div>
+    </div>
+  </div>
+</template>
+
 <template name="post_score_detailed_information">
   <div class="col-sm-12 {{ show_detailed_information }}">
     <table class="table detailed-course-information">
@@ -176,51 +248,5 @@
         <td><input class="form-control" data-hole-number="18"></td>
       </tr>
     </table>
-  </div>
-</template>
-
-<template name="post_score_body">
-  <div class="col-sm-12 create-new-course">
-    <h2>Post Score</h2>
-    <div class="col-sm-12">
-      <div class="form-group">
-        <input class="form-control course-name" type="text" placeholder="Course Name">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group">
-        <input class="form-control course-tees" type="text" placeholder="Tees">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group">
-        <input class="form-control course-rating" type="text" placeholder="Course Rating">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group">
-        <input class="form-control course-yardage" type="text" placeholder="Total Yardage" data-user-input="t">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group">
-        <input class="form-control course-slope" type="text" placeholder="Course Slope">
-      </div>
-    </div>
-    {{> post_score_detailed_information }}
-    <div class="col-sm-12">
-      <div class="form-group">
-        <button class="btn btn-primary submit-new-course">Create course</button>
-        {{#if add_detailed_information }}
-          <button class="btn btn-default hide-detailed-information">
-            <span class="glyphicon glyphicon-minus"></span> Hide detailed info
-          </button>
-        {{else}}
-          <button class="btn btn-default add-detailed-information">
-            <span class="glyphicon glyphicon-plus"></span> Add detailed info
-          </button>
-        {{/if}}
-      </div>
-    </div>
   </div>
 </template>

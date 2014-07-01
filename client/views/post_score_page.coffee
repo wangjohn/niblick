@@ -1,11 +1,4 @@
-Template.course_selection_buttons.events
-  "click button.add-course": (evt) ->
-    Session.set("course_selection_adding_course", true)
-
-Template.post_score_page.adding_course = ->
-  Session.get("course_selection_adding_course")
-
-Template.create_new_course.events
+Template.post_score_body.events
   "click .submit-new-course": (evt) ->
     htmlWrapper = $(".create-new-course")
 
@@ -22,19 +15,19 @@ Template.create_new_course.events
     console.log(courseSpecifications)
     courseId = Courses.insert(courseSpecifications)
     Session.set("selected_course", Courses.findOne(courseId))
-    Session.set("course_selection_adding_course", false)
+    Session.set("post_score_adding_course", false)
 
   "keyup .course-yardage": (evt) ->
     $(".create-new-course .course-yardage").attr("data-user-input", "t")
 
   "click .add-detailed-information": (evt) ->
-    Session.set("course_selection_add_detailed_information", true)
+    Session.set("post_score_add_detailed_information", true)
 
   "click .hide-detailed-information": (evt) ->
-    Session.set("course_selection_add_detailed_information", false)
+    Session.set("post_score_add_detailed_information", false)
 
-Template.create_new_course.add_detailed_information = ->
-  Session.get("course_selection_add_detailed_information")
+Template.post_score_body.add_detailed_information = ->
+  Session.get("post_score_add_detailed_information")
 
 Template.post_score_detailed_information.events
   "keyup .hole-yardage input": (evt) ->
@@ -49,7 +42,7 @@ Template.post_score_detailed_information.events
     maximumLengthFocuser(2, evt)
 
 Template.post_score_detailed_information.show_detailed_information = ->
-  "hide" unless Session.get("course_selection_add_detailed_information")
+  "hide" unless Session.get("post_score_add_detailed_information")
 
 totalYardageAdder = (totalYardageSelector, evt) ->
   if $(totalYardageSelector).val() == "" or $(totalYardageSelector).attr("data-user-input") == "f"
