@@ -26,9 +26,6 @@ Template.post_score_body.events
   "click .hide-detailed-information": (evt) ->
     Session.set("post_score_add_detailed_information", false)
 
-Template.post_score_body.add_detailed_information = ->
-  Session.get("post_score_add_detailed_information")
-
 Template.post_score_detailed_information.events
   "keyup .hole-yardage input": (evt) ->
     callback = parValueGenerator(".hole-yardage input", ".hole-par input", evt)
@@ -43,6 +40,12 @@ Template.post_score_detailed_information.events
 
 Template.post_score_detailed_information.show_detailed_information = ->
   "hide" unless Session.get("post_score_add_detailed_information")
+
+Template.post_score_non_detailed_information.show_non_detailed_information = ->
+  "hide" if Session.get("post_score_add_detailed_information")
+
+Template.post_score_body.add_detailed_information = ->
+  Session.get("post_score_add_detailed_information")
 
 totalYardageAdder = (totalYardageSelector, evt) ->
   if $(totalYardageSelector).val() == "" or $(totalYardageSelector).attr("data-user-input") == "f"
