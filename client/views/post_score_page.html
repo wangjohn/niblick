@@ -32,11 +32,9 @@
         <input class="form-control course-yardage" type="text" placeholder="Total Yardage" data-user-input="t">
       </div>
     </div>
-    <h2>Scoring Information</h2>
-    {{> post_score_information }}
-    <div class="col-sm-12">
-      <div class="form-group">
-        <button class="btn btn-primary submit-new-course">Post Score</button>
+    <h2>
+      Scoring Information
+      <span class="pull-right">
         {{#if add_detailed_information }}
           <button class="btn btn-default hide-detailed-information">
             <span class="glyphicon glyphicon-minus"></span> Hide detailed info
@@ -46,6 +44,12 @@
             <span class="glyphicon glyphicon-plus"></span> Add detailed info
           </button>
         {{/if}}
+      </span>
+    </h2>
+    {{> post_score_information }}
+    <div class="col-sm-12">
+      <div class="form-group">
+        <button class="btn btn-lg btn-primary submit-new-course">Post Score</button>
       </div>
     </div>
   </div>
@@ -58,17 +62,17 @@
 
 <template name="post_score_non_detailed_information">
   <div class="{{ show_non_detailed_information }}">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <div class="form-group">
         <input class="form-control front-nine-score" type="text" placeholder="Front Nine Score">
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <div class="form-group">
         <input class="form-control back-nine-score" type="text" placeholder="Back Nine Score">
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-4">
       <div class="form-group">
         <input class="form-control total-score" type="text" placeholder="Total Score">
       </div>
