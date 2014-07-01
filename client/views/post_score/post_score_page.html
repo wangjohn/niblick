@@ -5,8 +5,11 @@
 </template>
 
 <template name="post_score_body">
-  <div class="col-sm-12 create-new-course">
+  <div class="col-sm-12 post-score-course-information">
     <h2>Course Information</h2>
+    <div class="hidden">
+      <input class="form-control course-id" type="text">
+    </div>
     <div class="col-sm-12">
       <div class="form-group">
         <input class="form-control course-name" type="text" placeholder="Course Name">
@@ -32,6 +35,8 @@
         <input class="form-control course-yardage" type="text" placeholder="Total Yardage" data-user-input="t">
       </div>
     </div>
+  </div>
+  <div class="col-sm-12 post-score-scoring-information">
     <h2>
       Scoring Information
       <span class="pull-right">
@@ -56,201 +61,201 @@
 </template>
 
 <template name="post_score_information">
-  {{> post_score_non_detailed_information}}
-  {{> post_score_detailed_information}}
+  <div class="{{ show_non_detailed_information }} non-detailed-course-information">
+    {{> post_score_non_detailed_information}}
+  </div>
+  <div class="{{ show_detailed_information }} detailed-course-information col-sm-12">
+    {{> post_score_detailed_information}}
+  </div>
 </template>
 
 <template name="post_score_non_detailed_information">
-  <div class="{{ show_non_detailed_information }}">
-    <div class="col-sm-4">
-      <div class="form-group">
-        <input class="form-control front-nine-score" type="text" placeholder="Front Nine Score">
-      </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <input class="form-control front-nine-score" type="text" placeholder="Front Nine Score">
     </div>
-    <div class="col-sm-4">
-      <div class="form-group">
-        <input class="form-control back-nine-score" type="text" placeholder="Back Nine Score">
-      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <input class="form-control back-nine-score" type="text" placeholder="Back Nine Score">
     </div>
-    <div class="col-sm-4">
-      <div class="form-group">
-        <input class="form-control total-score" type="text" placeholder="Total Score">
-      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <input class="form-control total-score" type="text" placeholder="Total Score">
     </div>
   </div>
 </template>
 
 <template name="post_score_detailed_information">
-  <div class="col-sm-12 {{ show_detailed_information }}">
-    <table class="table detailed-course-information">
-      <tr class="hole-headers">
-        <td>Hole</td>
-        <td class="text-center" data-hole-number="1">1</td>
-        <td class="text-center" data-hole-number="2">2</td>
-        <td class="text-center" data-hole-number="3">3</td>
-        <td class="text-center" data-hole-number="4">4</td>
-        <td class="text-center" data-hole-number="5">5</td>
-        <td class="text-center" data-hole-number="6">6</td>
-        <td class="text-center" data-hole-number="7">7</td>
-        <td class="text-center" data-hole-number="8">8</td>
-        <td class="text-center" data-hole-number="9">9</td>
-        <td class="text-center" data-hole-number="10">10</td>
-        <td class="text-center" data-hole-number="11">11</td>
-        <td class="text-center" data-hole-number="12">12</td>
-        <td class="text-center" data-hole-number="13">13</td>
-        <td class="text-center" data-hole-number="14">14</td>
-        <td class="text-center" data-hole-number="15">15</td>
-        <td class="text-center" data-hole-number="16">16</td>
-        <td class="text-center" data-hole-number="17">17</td>
-        <td class="text-center" data-hole-number="18">18</td>
-      </tr>
-      <tr class="hole-score">
-        <td>Score</td>
-        <td><input class="form-control" data-hole-number="1"></td>
-        <td><input class="form-control" data-hole-number="2"></td>
-        <td><input class="form-control" data-hole-number="3"></td>
-        <td><input class="form-control" data-hole-number="4"></td>
-        <td><input class="form-control" data-hole-number="5"></td>
-        <td><input class="form-control" data-hole-number="6"></td>
-        <td><input class="form-control" data-hole-number="7"></td>
-        <td><input class="form-control" data-hole-number="8"></td>
-        <td><input class="form-control" data-hole-number="9"></td>
-        <td><input class="form-control" data-hole-number="10"></td>
-        <td><input class="form-control" data-hole-number="11"></td>
-        <td><input class="form-control" data-hole-number="12"></td>
-        <td><input class="form-control" data-hole-number="13"></td>
-        <td><input class="form-control" data-hole-number="14"></td>
-        <td><input class="form-control" data-hole-number="15"></td>
-        <td><input class="form-control" data-hole-number="16"></td>
-        <td><input class="form-control" data-hole-number="17"></td>
-        <td><input class="form-control" data-hole-number="18"></td>
-      </tr>
-      <tr class="fairway-in-regulation">
-        <td>Fairway in Regulation</td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="1"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="2"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="3"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="4"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="5"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="6"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="7"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="8"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="9"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="10"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="11"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="12"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="13"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="14"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="15"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="16"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="17"></td>
-        <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="18"></td>
-      </tr>
-      <tr class="green-in-regulation">
-        <td>Green in Regulation</td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="1"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="2"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="3"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="4"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="5"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="6"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="7"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="8"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="9"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="10"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="11"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="12"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="13"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="14"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="15"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="16"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="17"></td>
-        <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="18"></td>
-      </tr>
-      <tr class="putts">
-        <td>Putts</td>
-        <td><input class="form-control" data-hole-number="1"></td>
-        <td><input class="form-control" data-hole-number="2"></td>
-        <td><input class="form-control" data-hole-number="3"></td>
-        <td><input class="form-control" data-hole-number="4"></td>
-        <td><input class="form-control" data-hole-number="5"></td>
-        <td><input class="form-control" data-hole-number="6"></td>
-        <td><input class="form-control" data-hole-number="7"></td>
-        <td><input class="form-control" data-hole-number="8"></td>
-        <td><input class="form-control" data-hole-number="9"></td>
-        <td><input class="form-control" data-hole-number="10"></td>
-        <td><input class="form-control" data-hole-number="11"></td>
-        <td><input class="form-control" data-hole-number="12"></td>
-        <td><input class="form-control" data-hole-number="13"></td>
-        <td><input class="form-control" data-hole-number="14"></td>
-        <td><input class="form-control" data-hole-number="15"></td>
-        <td><input class="form-control" data-hole-number="16"></td>
-        <td><input class="form-control" data-hole-number="17"></td>
-        <td><input class="form-control" data-hole-number="18"></td>
-      </tr>
-      <tr class="hole-yardage">
-        <td>Yardage</td>
-        <td><input class="form-control" data-hole-number="1"></td>
-        <td><input class="form-control" data-hole-number="2"></td>
-        <td><input class="form-control" data-hole-number="3"></td>
-        <td><input class="form-control" data-hole-number="4"></td>
-        <td><input class="form-control" data-hole-number="5"></td>
-        <td><input class="form-control" data-hole-number="6"></td>
-        <td><input class="form-control" data-hole-number="7"></td>
-        <td><input class="form-control" data-hole-number="8"></td>
-        <td><input class="form-control" data-hole-number="9"></td>
-        <td><input class="form-control" data-hole-number="10"></td>
-        <td><input class="form-control" data-hole-number="11"></td>
-        <td><input class="form-control" data-hole-number="12"></td>
-        <td><input class="form-control" data-hole-number="13"></td>
-        <td><input class="form-control" data-hole-number="14"></td>
-        <td><input class="form-control" data-hole-number="15"></td>
-        <td><input class="form-control" data-hole-number="16"></td>
-        <td><input class="form-control" data-hole-number="17"></td>
-        <td><input class="form-control" data-hole-number="18"></td>
-      </tr>
-      <tr class="hole-handicap">
-        <td>Handicap</td>
-        <td><input class="form-control" data-hole-number="1"></td>
-        <td><input class="form-control" data-hole-number="2"></td>
-        <td><input class="form-control" data-hole-number="3"></td>
-        <td><input class="form-control" data-hole-number="4"></td>
-        <td><input class="form-control" data-hole-number="5"></td>
-        <td><input class="form-control" data-hole-number="6"></td>
-        <td><input class="form-control" data-hole-number="7"></td>
-        <td><input class="form-control" data-hole-number="8"></td>
-        <td><input class="form-control" data-hole-number="9"></td>
-        <td><input class="form-control" data-hole-number="10"></td>
-        <td><input class="form-control" data-hole-number="11"></td>
-        <td><input class="form-control" data-hole-number="12"></td>
-        <td><input class="form-control" data-hole-number="13"></td>
-        <td><input class="form-control" data-hole-number="14"></td>
-        <td><input class="form-control" data-hole-number="15"></td>
-        <td><input class="form-control" data-hole-number="16"></td>
-        <td><input class="form-control" data-hole-number="17"></td>
-        <td><input class="form-control" data-hole-number="18"></td>
-      </tr>
-      <tr class="hole-par">
-        <td>Par</td>
-        <td><input class="form-control" data-hole-number="1"></td>
-        <td><input class="form-control" data-hole-number="2"></td>
-        <td><input class="form-control" data-hole-number="3"></td>
-        <td><input class="form-control" data-hole-number="4"></td>
-        <td><input class="form-control" data-hole-number="5"></td>
-        <td><input class="form-control" data-hole-number="6"></td>
-        <td><input class="form-control" data-hole-number="7"></td>
-        <td><input class="form-control" data-hole-number="8"></td>
-        <td><input class="form-control" data-hole-number="9"></td>
-        <td><input class="form-control" data-hole-number="10"></td>
-        <td><input class="form-control" data-hole-number="11"></td>
-        <td><input class="form-control" data-hole-number="12"></td>
-        <td><input class="form-control" data-hole-number="13"></td>
-        <td><input class="form-control" data-hole-number="14"></td>
-        <td><input class="form-control" data-hole-number="15"></td>
-        <td><input class="form-control" data-hole-number="16"></td>
-        <td><input class="form-control" data-hole-number="17"></td>
-        <td><input class="form-control" data-hole-number="18"></td>
-      </tr>
-    </table>
-  </div>
+  <table class="table detailed-course-information-table">
+    <tr class="hole-headers">
+      <td>Hole</td>
+      <td class="text-center" data-hole-number="1">1</td>
+      <td class="text-center" data-hole-number="2">2</td>
+      <td class="text-center" data-hole-number="3">3</td>
+      <td class="text-center" data-hole-number="4">4</td>
+      <td class="text-center" data-hole-number="5">5</td>
+      <td class="text-center" data-hole-number="6">6</td>
+      <td class="text-center" data-hole-number="7">7</td>
+      <td class="text-center" data-hole-number="8">8</td>
+      <td class="text-center" data-hole-number="9">9</td>
+      <td class="text-center" data-hole-number="10">10</td>
+      <td class="text-center" data-hole-number="11">11</td>
+      <td class="text-center" data-hole-number="12">12</td>
+      <td class="text-center" data-hole-number="13">13</td>
+      <td class="text-center" data-hole-number="14">14</td>
+      <td class="text-center" data-hole-number="15">15</td>
+      <td class="text-center" data-hole-number="16">16</td>
+      <td class="text-center" data-hole-number="17">17</td>
+      <td class="text-center" data-hole-number="18">18</td>
+    </tr>
+    <tr class="hole-score">
+      <td>Score</td>
+      <td><input class="form-control" data-hole-number="1"></td>
+      <td><input class="form-control" data-hole-number="2"></td>
+      <td><input class="form-control" data-hole-number="3"></td>
+      <td><input class="form-control" data-hole-number="4"></td>
+      <td><input class="form-control" data-hole-number="5"></td>
+      <td><input class="form-control" data-hole-number="6"></td>
+      <td><input class="form-control" data-hole-number="7"></td>
+      <td><input class="form-control" data-hole-number="8"></td>
+      <td><input class="form-control" data-hole-number="9"></td>
+      <td><input class="form-control" data-hole-number="10"></td>
+      <td><input class="form-control" data-hole-number="11"></td>
+      <td><input class="form-control" data-hole-number="12"></td>
+      <td><input class="form-control" data-hole-number="13"></td>
+      <td><input class="form-control" data-hole-number="14"></td>
+      <td><input class="form-control" data-hole-number="15"></td>
+      <td><input class="form-control" data-hole-number="16"></td>
+      <td><input class="form-control" data-hole-number="17"></td>
+      <td><input class="form-control" data-hole-number="18"></td>
+    </tr>
+    <tr class="fairway-in-regulation">
+      <td>Fairway in Regulation</td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="1"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="2"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="3"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="4"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="5"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="6"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="7"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="8"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="9"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="10"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="11"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="12"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="13"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="14"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="15"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="16"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="17"></td>
+      <td><input class="form-control" type="checkbox" name="fairway-hit" data-hole-number="18"></td>
+    </tr>
+    <tr class="green-in-regulation">
+      <td>Green in Regulation</td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="1"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="2"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="3"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="4"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="5"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="6"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="7"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="8"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="9"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="10"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="11"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="12"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="13"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="14"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="15"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="16"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="17"></td>
+      <td><input class="form-control" type="checkbox" name="green-hit" data-hole-number="18"></td>
+    </tr>
+    <tr class="putts">
+      <td>Putts</td>
+      <td><input class="form-control" data-hole-number="1"></td>
+      <td><input class="form-control" data-hole-number="2"></td>
+      <td><input class="form-control" data-hole-number="3"></td>
+      <td><input class="form-control" data-hole-number="4"></td>
+      <td><input class="form-control" data-hole-number="5"></td>
+      <td><input class="form-control" data-hole-number="6"></td>
+      <td><input class="form-control" data-hole-number="7"></td>
+      <td><input class="form-control" data-hole-number="8"></td>
+      <td><input class="form-control" data-hole-number="9"></td>
+      <td><input class="form-control" data-hole-number="10"></td>
+      <td><input class="form-control" data-hole-number="11"></td>
+      <td><input class="form-control" data-hole-number="12"></td>
+      <td><input class="form-control" data-hole-number="13"></td>
+      <td><input class="form-control" data-hole-number="14"></td>
+      <td><input class="form-control" data-hole-number="15"></td>
+      <td><input class="form-control" data-hole-number="16"></td>
+      <td><input class="form-control" data-hole-number="17"></td>
+      <td><input class="form-control" data-hole-number="18"></td>
+    </tr>
+    <tr class="hole-yardage">
+      <td>Yardage</td>
+      <td><input class="form-control" data-hole-number="1"></td>
+      <td><input class="form-control" data-hole-number="2"></td>
+      <td><input class="form-control" data-hole-number="3"></td>
+      <td><input class="form-control" data-hole-number="4"></td>
+      <td><input class="form-control" data-hole-number="5"></td>
+      <td><input class="form-control" data-hole-number="6"></td>
+      <td><input class="form-control" data-hole-number="7"></td>
+      <td><input class="form-control" data-hole-number="8"></td>
+      <td><input class="form-control" data-hole-number="9"></td>
+      <td><input class="form-control" data-hole-number="10"></td>
+      <td><input class="form-control" data-hole-number="11"></td>
+      <td><input class="form-control" data-hole-number="12"></td>
+      <td><input class="form-control" data-hole-number="13"></td>
+      <td><input class="form-control" data-hole-number="14"></td>
+      <td><input class="form-control" data-hole-number="15"></td>
+      <td><input class="form-control" data-hole-number="16"></td>
+      <td><input class="form-control" data-hole-number="17"></td>
+      <td><input class="form-control" data-hole-number="18"></td>
+    </tr>
+    <tr class="hole-handicap">
+      <td>Handicap</td>
+      <td><input class="form-control" data-hole-number="1"></td>
+      <td><input class="form-control" data-hole-number="2"></td>
+      <td><input class="form-control" data-hole-number="3"></td>
+      <td><input class="form-control" data-hole-number="4"></td>
+      <td><input class="form-control" data-hole-number="5"></td>
+      <td><input class="form-control" data-hole-number="6"></td>
+      <td><input class="form-control" data-hole-number="7"></td>
+      <td><input class="form-control" data-hole-number="8"></td>
+      <td><input class="form-control" data-hole-number="9"></td>
+      <td><input class="form-control" data-hole-number="10"></td>
+      <td><input class="form-control" data-hole-number="11"></td>
+      <td><input class="form-control" data-hole-number="12"></td>
+      <td><input class="form-control" data-hole-number="13"></td>
+      <td><input class="form-control" data-hole-number="14"></td>
+      <td><input class="form-control" data-hole-number="15"></td>
+      <td><input class="form-control" data-hole-number="16"></td>
+      <td><input class="form-control" data-hole-number="17"></td>
+      <td><input class="form-control" data-hole-number="18"></td>
+    </tr>
+    <tr class="hole-par">
+      <td>Par</td>
+      <td><input class="form-control" data-hole-number="1"></td>
+      <td><input class="form-control" data-hole-number="2"></td>
+      <td><input class="form-control" data-hole-number="3"></td>
+      <td><input class="form-control" data-hole-number="4"></td>
+      <td><input class="form-control" data-hole-number="5"></td>
+      <td><input class="form-control" data-hole-number="6"></td>
+      <td><input class="form-control" data-hole-number="7"></td>
+      <td><input class="form-control" data-hole-number="8"></td>
+      <td><input class="form-control" data-hole-number="9"></td>
+      <td><input class="form-control" data-hole-number="10"></td>
+      <td><input class="form-control" data-hole-number="11"></td>
+      <td><input class="form-control" data-hole-number="12"></td>
+      <td><input class="form-control" data-hole-number="13"></td>
+      <td><input class="form-control" data-hole-number="14"></td>
+      <td><input class="form-control" data-hole-number="15"></td>
+      <td><input class="form-control" data-hole-number="16"></td>
+      <td><input class="form-control" data-hole-number="17"></td>
+      <td><input class="form-control" data-hole-number="18"></td>
+    </tr>
+  </table>
 </template>

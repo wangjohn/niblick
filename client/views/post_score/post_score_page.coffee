@@ -20,10 +20,10 @@ Template.post_score_detailed_information.events
   "keyup .hole-handicap input": (evt) ->
     maximumLengthFocuser(2, evt)
 
-Template.post_score_detailed_information.show_detailed_information = ->
+Template.post_score_information.show_detailed_information = ->
   "hide" unless Session.get("post_score_add_detailed_information")
 
-Template.post_score_non_detailed_information.show_non_detailed_information = ->
+Template.post_score_information.show_non_detailed_information = ->
   "hide" if Session.get("post_score_add_detailed_information")
 
 Template.post_score_body.add_detailed_information = ->
