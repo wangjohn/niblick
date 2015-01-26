@@ -7,6 +7,6 @@ standard-app-packages
 autopublish
 insecure
 coffeescript
-iron-router
-bootstrap-3
 less
+iron:router
+nemo64:bootstrap
