@@ -13,3 +13,8 @@ if Meteor.isClient
     @route "post_score",
       path: "/post_score"
       template: "post_score_page"
+
+  Router.map ->
+    @route "post_score_fancy",
+      path: "/post_score_fancy"
+      template: "post_score_fancy_page"

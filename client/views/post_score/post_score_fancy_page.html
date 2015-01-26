@@ -1,0 +1,56 @@
+<template name="post_score_fancy_page">
+  <div class="post_score_fancy_page">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="form">
+          <div class="form-group">
+            <select class="form-control">
+              <option value="course1">Course1</option>
+              <option value="course2">Course2</option>
+              <option value="course3">Course3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <div class="">
+          <img src="http://www.ncga.org/wp-content/uploads/2015/01/Pebble-Beach-for-web.jpg" class="img-responsive" alt="Course Image">
+        </div>
+      </div>
+    </div>
+    <div class="row holes">
+      {{#each holes}}
+        <div class="{{hole_number}} col-sm-2 individual-hole">
+          <div class="well well-sm">
+            <div class="form">
+              <div class="form-group">
+                <h4 class="text-center">{{hole_number}}</h4>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-12 text-center center-block">
+                    <button class="btn btn-default btn-sm" tabindex="-1">
+                      <span class="glyphicon glyphicon-chevron-up"></span>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 text-center center-block">
+                    <input class="form-control text-center" type="text" maxlength="2">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 text-center center-block">
+                     <button class="btn btn-default btn-sm" tabindex="-1">
+                       <span class="glyphicon glyphicon-chevron-down"></span>
+                     </button>
+                   </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>
