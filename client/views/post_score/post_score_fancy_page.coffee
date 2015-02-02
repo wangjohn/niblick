@@ -4,6 +4,7 @@ Template.post_score_fancy_page.helpers
     for i in [1..18]
       holes.push({
         hole_number: i,
+        par: 4,
       })
     holes
 
@@ -14,7 +15,7 @@ Template.post_score_fancy_page.events
   "mouseleave .individual-hole": (evt) ->
     clearHoleSelection(evt)
 
-  "focus .individual-hole input": (evt) ->
+  "focus .individual-hole input.hole-attribute": (evt) ->
     selectHole(evt)
 
   "click .btn-increase": (evt) ->
@@ -26,6 +27,24 @@ Template.post_score_fancy_page.events
   "change input.hole-attribute": (evt) ->
     $input = $(evt.target)
     setScoreType($input.val(), $input.closest(".individual-hole"))
+
+  "click .hole-par-label": (evt) ->
+    $tar = $(evt.currentTarget)
+    $tar.addClass("hidden")
+    $input = $tar.closest(".hole-par-display").find(".hole-par-input")
+    $input.removeClass("hidden")
+    $input.focus()
+
+  "keypress .hole-par-input": (evt) ->
+    char = String.fromCharCode(evt.which)
+    if !char.match(/[0-9]/)
+      return evt.preventDefault()
+    $input = $(evt.target)
+    $input.val(char)
+    $input.addClass("hidden")
+    $label = $input.closest(".hole-par-display").find(".hole-par-label")
+    $label.find(".hole-par").text(char)
+    $label.removeClass("hidden")
 
 changeInput = (delta, evt) ->
   $hole = $(evt.target).closest(".individual-hole")
