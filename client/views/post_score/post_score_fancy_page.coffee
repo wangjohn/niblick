@@ -35,16 +35,22 @@ Template.post_score_fancy_page.events
     $input.removeClass("hidden")
     $input.focus()
 
+  "blur .hole-par-input": (evt) ->
+    $input = $(evt.currentTarget)
+    closeParInput($input)
+
   "keypress .hole-par-input": (evt) ->
     char = String.fromCharCode(evt.which)
     if !char.match(/[0-9]/)
       return evt.preventDefault()
-    $input = $(evt.target)
-    $input.val(char)
-    $input.addClass("hidden")
-    $label = $input.closest(".hole-par-display").find(".hole-par-label")
-    $label.find(".hole-par").text(char)
-    $label.removeClass("hidden")
+    $input = $(evt.currentTarget)
+    closeParInput($input, char)
+
+closeParInput = ($input, value) ->
+  $input.addClass("hidden")
+  $label = $input.closest(".hole-par-display").find(".hole-par-label")
+  $label.find(".hole-par").text(value) if value
+  $label.removeClass("hidden")
 
 changeInput = (delta, evt) ->
   $hole = $(evt.target).closest(".individual-hole")
